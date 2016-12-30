@@ -14,6 +14,7 @@
 		B66DA2D61E163E27001A8D9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B66DA2D41E163E27001A8D9D /* Main.storyboard */; };
 		B66DA2D81E163E27001A8D9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B66DA2D71E163E27001A8D9D /* Assets.xcassets */; };
 		B66DA2DB1E163E27001A8D9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B66DA2D91E163E27001A8D9D /* LaunchScreen.storyboard */; };
+		B66DA2EA1E16582E001A8D9D /* ServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B66DA2E91E16582E001A8D9D /* ServiceManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		B66DA2D71E163E27001A8D9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B66DA2DA1E163E27001A8D9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B66DA2DC1E163E27001A8D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B66DA2E81E16582E001A8D9D /* ServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceManager.h; sourceTree = "<group>"; };
+		B66DA2E91E16582E001A8D9D /* ServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,7 @@
 		B66DA2CA1E163E27001A8D9D /* Vodworks */ = {
 			isa = PBXGroup;
 			children = (
+				B66DA2E21E1657AE001A8D9D /* Managers */,
 				B66DA2CE1E163E27001A8D9D /* AppDelegate.h */,
 				B66DA2CF1E163E27001A8D9D /* AppDelegate.m */,
 				B66DA2D11E163E27001A8D9D /* ViewController.h */,
@@ -101,6 +105,23 @@
 				B66DA2CC1E163E27001A8D9D /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B66DA2E21E1657AE001A8D9D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B66DA2E71E16582E001A8D9D /* ServiceManager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		B66DA2E71E16582E001A8D9D /* ServiceManager */ = {
+			isa = PBXGroup;
+			children = (
+				B66DA2E81E16582E001A8D9D /* ServiceManager.h */,
+				B66DA2E91E16582E001A8D9D /* ServiceManager.m */,
+			);
+			path = ServiceManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +249,7 @@
 				B66DA2D31E163E27001A8D9D /* ViewController.m in Sources */,
 				B66DA2D01E163E27001A8D9D /* AppDelegate.m in Sources */,
 				B66DA2CD1E163E27001A8D9D /* main.m in Sources */,
+				B66DA2EA1E16582E001A8D9D /* ServiceManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +410,7 @@
 				B66DA2E11E163E27001A8D9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
