@@ -8,14 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "AFHTTPSessionManager.h"
-//#import "AFHTTPRequestOperation.h"
-//#import "AFHTTPRequestOperationManager.h"
 
-#warning Code Revive 
-//move block definition to STBlockDefinition class
 typedef void (^ServiceSuccessBlock)(id responseObject);
 typedef void (^ServiceFailureBlock)(NSError *error);
-//typedef void (^ServiceProgressBlock)(AFHTTPRequestOperation *operation, CGFloat percentage);
 
 @interface ServiceManager : NSObject
 

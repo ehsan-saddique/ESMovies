@@ -8,5 +8,6 @@ target 'Vodworks' do
   # Pods for Vodworks
 
 pod 'AFNetworking'
+pod 'MBProgressHUD'
 
 end

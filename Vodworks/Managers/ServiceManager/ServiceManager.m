@@ -7,8 +7,8 @@
 //
 
 #import "ServiceManager.h"
-#import "STCommonMacros.h"
-#import "STApplicationSetup.h"
+//#import "STCommonMacros.h"
+//#import "STApplicationSetup.h"
 
 @implementation ServiceManager
 
@@ -43,7 +43,6 @@
 
 - (void) startGETRequestWithURL:(NSString*)urlString andParameters:(NSDictionary*) parameters userInfo:(NSDictionary *)userinfo withSuccessCallback:(ServiceSuccessBlock)successCallBack andFailureCallBack:(ServiceFailureBlock)failureCallBack
 {
-    //[parameters setValue:[UtilityClass fullUserAgent] forKey:@"fulluseragent"];
     NSURL *url = [NSURL URLWithString:urlString];
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -54,7 +53,6 @@
     
     operationManager.securityPolicy.allowInvalidCertificates = YES;
     operationManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/xml", @"text/plain", nil];
-//    [operationManager.requestSerializer setValue:[[STApplicationSetup sharedSetup].session getToken] forHTTPHeaderField:@"AuthToken"];
     
     [operationManager GET:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -72,29 +70,11 @@
         failureCallBack(error);
     }];
     
-//    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-//        
-//        switch (status) {
-//            case AFNetworkReachabilityStatusNotReachable:
-//            {
-////                failureCallBack(nil); // Cause issues in repeating call of failure block
-//                break;
-//            }
-//            default:
-//                break;
-//        }
-//        NSLog(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
-//        
-//    }];
-//    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-    
-    
 }
 
 
 - (void) startPOSTRequestWithURL:(NSString*)urlString andParameters:(NSDictionary*) parameters withSuccessCallback:(ServiceSuccessBlock)successCallBack andFailureCallBack:(ServiceFailureBlock)failureCallBack
 {
-    //[parameters setValue:[UtilityClass fullUserAgent] forKey:@"fulluseragent"];
     
     NSURL *url = [NSURL URLWithString:urlString];
     
@@ -103,13 +83,9 @@
     NSLog(@"Request URL : %@\nRequest Parameters : %@", url, parameters);
     
     AFHTTPSessionManager *operationManager = self.sharedHTTPManager;
-    // Added for Cert Pinnning issue
-//    operationManager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
-//    operationManager.securityPolicy.validatesDomainName = NO;
     
     operationManager.securityPolicy.allowInvalidCertificates = YES;
     operationManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/xml", @"text/plain", nil];
-//    [operationManager.requestSerializer setValue:[[STApplicationSetup sharedSetup].session getToken] forHTTPHeaderField:@"AuthToken"];
     
     [operationManager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -126,23 +102,6 @@
         
         failureCallBack(error);
     }];
-    
-//    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-//        
-//        switch (status) {
-//            case AFNetworkReachabilityStatusNotReachable:
-//            {
-//                failureCallBack(nil);
-//                break;
-//            }
-//            default:
-//                break;
-//        }
-//        NSLog(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
-//        
-//    }];
-//    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-    
     
 }
 
