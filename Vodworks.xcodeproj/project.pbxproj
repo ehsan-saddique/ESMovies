@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		20AF7277D26B9BC30C0B370D /* libPods-Vodworks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC27DB698CBE5EC4118DF5C /* libPods-Vodworks.a */; };
+		B612A1EA1E1980BF00E663E6 /* ImageViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B612A1E91E1980BF00E663E6 /* ImageViewerViewController.m */; };
+		B62815E91E1961E700BAF2BA /* ItemDetailHeaderCollapsed.m in Sources */ = {isa = PBXBuildFile; fileRef = B62815E71E1961E700BAF2BA /* ItemDetailHeaderCollapsed.m */; };
+		B62815EA1E1961E700BAF2BA /* ItemDetailHeaderCollapsed.xib in Resources */ = {isa = PBXBuildFile; fileRef = B62815E81E1961E700BAF2BA /* ItemDetailHeaderCollapsed.xib */; };
+		B62815EF1E19646C00BAF2BA /* ItemDetailExpandedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B62815ED1E19646C00BAF2BA /* ItemDetailExpandedTableViewCell.m */; };
+		B62815F01E19646C00BAF2BA /* ItemDetailExpandedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B62815EE1E19646C00BAF2BA /* ItemDetailExpandedTableViewCell.xib */; };
 		B62D76A41E17D7A200DC94C0 /* ItemDetailHeaderVideos.m in Sources */ = {isa = PBXBuildFile; fileRef = B62D76A31E17D7A200DC94C0 /* ItemDetailHeaderVideos.m */; };
 		B62D76A61E17D7C300DC94C0 /* ItemDetailHeaderVideos.xib in Resources */ = {isa = PBXBuildFile; fileRef = B62D76A51E17D7C300DC94C0 /* ItemDetailHeaderVideos.xib */; };
 		B62D76AB1E17D9E700DC94C0 /* VideoHeaderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B62D76A91E17D9E700DC94C0 /* VideoHeaderCollectionViewCell.m */; };
@@ -41,6 +46,14 @@
 		218AA020BE21FC1E7FB7A44D /* Pods-Vodworks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vodworks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vodworks/Pods-Vodworks.debug.xcconfig"; sourceTree = "<group>"; };
 		2DB32E6F71E1A3F255D15EAB /* Pods-Vodworks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vodworks.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vodworks/Pods-Vodworks.release.xcconfig"; sourceTree = "<group>"; };
 		4AC27DB698CBE5EC4118DF5C /* libPods-Vodworks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Vodworks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B612A1E81E1980BF00E663E6 /* ImageViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewerViewController.h; sourceTree = "<group>"; };
+		B612A1E91E1980BF00E663E6 /* ImageViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewerViewController.m; sourceTree = "<group>"; };
+		B62815E61E1961E700BAF2BA /* ItemDetailHeaderCollapsed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailHeaderCollapsed.h; sourceTree = "<group>"; };
+		B62815E71E1961E700BAF2BA /* ItemDetailHeaderCollapsed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailHeaderCollapsed.m; sourceTree = "<group>"; };
+		B62815E81E1961E700BAF2BA /* ItemDetailHeaderCollapsed.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemDetailHeaderCollapsed.xib; sourceTree = "<group>"; };
+		B62815EC1E19646C00BAF2BA /* ItemDetailExpandedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailExpandedTableViewCell.h; sourceTree = "<group>"; };
+		B62815ED1E19646C00BAF2BA /* ItemDetailExpandedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailExpandedTableViewCell.m; sourceTree = "<group>"; };
+		B62815EE1E19646C00BAF2BA /* ItemDetailExpandedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemDetailExpandedTableViewCell.xib; sourceTree = "<group>"; };
 		B62D76A21E17D7A200DC94C0 /* ItemDetailHeaderVideos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailHeaderVideos.h; sourceTree = "<group>"; };
 		B62D76A31E17D7A200DC94C0 /* ItemDetailHeaderVideos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailHeaderVideos.m; sourceTree = "<group>"; };
 		B62D76A51E17D7C300DC94C0 /* ItemDetailHeaderVideos.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemDetailHeaderVideos.xib; sourceTree = "<group>"; };
@@ -116,6 +129,25 @@
 				4AC27DB698CBE5EC4118DF5C /* libPods-Vodworks.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B612A1E71E1980A900E663E6 /* ImageViewerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B612A1E81E1980BF00E663E6 /* ImageViewerViewController.h */,
+				B612A1E91E1980BF00E663E6 /* ImageViewerViewController.m */,
+			);
+			path = ImageViewerViewController;
+			sourceTree = "<group>";
+		};
+		B62815EB1E19643500BAF2BA /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				B62815EC1E19646C00BAF2BA /* ItemDetailExpandedTableViewCell.h */,
+				B62815ED1E19646C00BAF2BA /* ItemDetailExpandedTableViewCell.m */,
+				B62815EE1E19646C00BAF2BA /* ItemDetailExpandedTableViewCell.xib */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		B62D76A71E17D91900DC94C0 /* CollectionViewCells */ = {
@@ -218,6 +250,7 @@
 		B66F3E881E17A7F100EF4E01 /* ItemDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B62815EB1E19643500BAF2BA /* TableViewCells */,
 				B66F3E8C1E17A82600EF4E01 /* TableViewHeaders */,
 				B66F3E891E17A80B00EF4E01 /* ItemDetailViewController.h */,
 				B66F3E8A1E17A80B00EF4E01 /* ItemDetailViewController.m */,
@@ -229,6 +262,9 @@
 			isa = PBXGroup;
 			children = (
 				B62D76A71E17D91900DC94C0 /* CollectionViewCells */,
+				B62815E61E1961E700BAF2BA /* ItemDetailHeaderCollapsed.h */,
+				B62815E71E1961E700BAF2BA /* ItemDetailHeaderCollapsed.m */,
+				B62815E81E1961E700BAF2BA /* ItemDetailHeaderCollapsed.xib */,
 				B62D76AD1E17F3CB00DC94C0 /* ItemDetailHeaderGallery.h */,
 				B62D76AE1E17F3CB00DC94C0 /* ItemDetailHeaderGallery.m */,
 				B62D76AF1E17F3CB00DC94C0 /* ItemDetailHeaderGallery.xib */,
@@ -258,6 +294,7 @@
 		B6AB94051E16C23800C5053F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B612A1E71E1980A900E663E6 /* ImageViewerViewController */,
 				B66F3E881E17A7F100EF4E01 /* ItemDetailViewController */,
 				B66F3E7E1E17A7D700EF4E01 /* ItemListViewController */,
 			);
@@ -346,9 +383,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B62815EA1E1961E700BAF2BA /* ItemDetailHeaderCollapsed.xib in Resources */,
 				B62D76B11E17F3CB00DC94C0 /* ItemDetailHeaderGallery.xib in Resources */,
 				B62D76A61E17D7C300DC94C0 /* ItemDetailHeaderVideos.xib in Resources */,
 				B66F3E871E17A7D700EF4E01 /* ItemListTableViewCell.xib in Resources */,
+				B62815F01E19646C00BAF2BA /* ItemDetailExpandedTableViewCell.xib in Resources */,
 				B62D76AC1E17D9E700DC94C0 /* VideoHeaderCollectionViewCell.xib in Resources */,
 				B66DA2DB1E163E27001A8D9D /* LaunchScreen.storyboard in Resources */,
 				B66F3E911E17A85B00EF4E01 /* ItemDetailHeaderOverview.xib in Resources */,
@@ -419,6 +458,7 @@
 				B66DA2D31E163E27001A8D9D /* ViewController.m in Sources */,
 				B6AB94151E16CEEC00C5053F /* Constant.m in Sources */,
 				B66F3E861E17A7D700EF4E01 /* ItemListTableViewCell.m in Sources */,
+				B62815EF1E19646C00BAF2BA /* ItemDetailExpandedTableViewCell.m in Sources */,
 				B6AB94121E16CEA800C5053F /* Utils.m in Sources */,
 				B62D76AB1E17D9E700DC94C0 /* VideoHeaderCollectionViewCell.m in Sources */,
 				B66DA2D01E163E27001A8D9D /* AppDelegate.m in Sources */,
@@ -430,7 +470,9 @@
 				B66F3E8B1E17A80B00EF4E01 /* ItemDetailViewController.m in Sources */,
 				B66F3E8F1E17A84900EF4E01 /* ItemDetailHeaderOverview.m in Sources */,
 				B66DA2EA1E16582E001A8D9D /* ServiceManager.m in Sources */,
+				B612A1EA1E1980BF00E663E6 /* ImageViewerViewController.m in Sources */,
 				B66F3E851E17A7D700EF4E01 /* ItemLIstViewController.m in Sources */,
+				B62815E91E1961E700BAF2BA /* ItemDetailHeaderCollapsed.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

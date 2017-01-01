@@ -42,7 +42,14 @@
         [Utils hideLoaderOfView:[UIApplication sharedApplication].keyWindow];
         [Utils showAlertWithCancelButton:@"OK" title:@"" message:error.localizedDescription viewController:self];
     }];
-    
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+    if (indexPath) {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:animated];
+    }
 }
 
 

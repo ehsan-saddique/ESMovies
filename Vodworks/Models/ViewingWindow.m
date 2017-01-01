@@ -7,7 +7,24 @@
 //
 
 #import "ViewingWindow.h"
+#import "Utils.h"
 
 @implementation ViewingWindow
+
+-(NSString *)title {
+    return [Utils isEmpty:_title] ? @"" : _title;
+}
+
+-(NSString *)startDate {
+    return [Utils isEmpty:_startDate] ? @"" : _startDate;
+}
+
+-(NSString *)endDate {
+    return [Utils isEmpty:_endDate] ? @"" : _endDate;
+}
+
+-(NSString *)wayToWatch {
+    return [Utils isEmpty:_wayToWatch] ? @"" : _wayToWatch;
+}
 
 @end

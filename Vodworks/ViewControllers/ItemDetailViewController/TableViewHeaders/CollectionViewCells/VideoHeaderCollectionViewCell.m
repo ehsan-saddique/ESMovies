@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.imgCardImage.hidden = YES;
 }
 
 - (IBAction)playButtonClicked:(id)sender {

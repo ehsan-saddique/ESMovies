@@ -32,7 +32,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 1;
+    return _mediaDataset.count;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -46,14 +46,27 @@
     NSDictionary *cardImage = [_mediaDataset objectAtIndex:indexPath.row];
     NSURL *url = [NSURL URLWithString:[cardImage valueForKey:@"url"]];
     
+    if (_mediaDataset.count == 1) {
+        cell.imgArrowRight.hidden = YES;
+    }
+    else {
+        if (indexPath.row == 0) {
+            cell.imgArrowRight.hidden = NO;
+        }
+        else {
+            cell.imgArrowRight.hidden = YES;
+        }
+    }
+    
     cell.playButtonTapHandler = ^{
         
         moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:url];
-        [moviePlayerController.view setFrame:CGRectMake(0, 70, 320, 270)];
+        [moviePlayerController.view setFrame:self.superview.frame];
         [self.superview addSubview:moviePlayerController.view];
         moviePlayerController.fullscreen = YES;
         [moviePlayerController play];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayBackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:moviePlayerController];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayBackDidFinish:) name:MPMoviePlayerWillExitFullscreenNotification object:moviePlayerController];
     };
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -64,24 +77,12 @@
         CGImageRef imgRef = [ima copyCGImageAtTime:time actualTime:NULL error:&err];
         UIImage *currentImg = [[UIImage alloc] initWithCGImage:imgRef];
         dispatch_async(dispatch_get_main_queue(), ^{
-            cell.imgCardImage.image = currentImg;
+            if (currentImg) {
+                cell.imgCardImage.hidden = NO;
+                cell.imgCardImage.image = currentImg;
+            }
         });
-    });
-    
-    
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder_item_artwork"];
-//    
-//    __weak VideoHeaderCollectionViewCell *weakCell = cell;
-//    
-//    [cell.imgCardImage setImageWithURLRequest:request
-//                           placeholderImage:placeholderImage
-//                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-//                                        
-//                                        weakCell.imgCardImage.image = image;
-//                                        [weakCell setNeedsLayout];
-//                                        
-//                                    } failure:nil];
+    });                                  
     
     return cell;
 }
@@ -95,6 +96,7 @@
     
     if ([player respondsToSelector:@selector(setFullscreen:animated:)])
     {
+        [player stop];
         [player.view removeFromSuperview];
     }
 }

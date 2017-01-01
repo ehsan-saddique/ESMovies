@@ -13,6 +13,7 @@ typedef void (^PlayButtonTapHandler)();
 @interface VideoHeaderCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic) IBOutlet UIImageView *imgCardImage;
+@property (nonatomic) IBOutlet UIImageView *imgArrowRight;
 
 @property (nonatomic) PlayButtonTapHandler playButtonTapHandler;
 

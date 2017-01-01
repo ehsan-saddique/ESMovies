@@ -10,8 +10,11 @@
 #import "GalleryHeaderCollectionViewCell.h"
 #import "Video.h"
 #import "UIImageView+AFNetworking.h"
+#import "Utils.h"
 
-@implementation ItemDetailHeaderGallery
+@implementation ItemDetailHeaderGallery {
+    UIImageView *ivFullImage;
+}
 
 -(void)awakeFromNib {
     [super awakeFromNib];
@@ -32,7 +35,7 @@
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(80, 104);
+    return CGSizeMake(80, collectionView.frame.size.height);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -43,20 +46,34 @@
     NSURL *url = [NSURL URLWithString:[cardImage valueForKey:@"url"]];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder_item_artwork"];
     
     __weak GalleryHeaderCollectionViewCell *weakCell = cell;
     
+    __block BOOL imageLoaded = NO;
     [cell.imgCardImage setImageWithURLRequest:request
-                           placeholderImage:placeholderImage
+                           placeholderImage:nil
                                     success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                         
                                         weakCell.imgCardImage.image = image;
                                         [weakCell setNeedsLayout];
+                                        imageLoaded = YES;
                                         
-                                    } failure:nil];
+                                    } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                                        NSLog(@"image download failed >> %@", error.localizedDescription);
+                                        imageLoaded = NO;
+                                    }];
+    
+    cell.imageTapHandler = ^ {
+        if (imageLoaded)
+            self.imageTapped(weakCell.imgCardImage.image);
+    };
+    
     
     return cell;
+}
+
+-(void) hideFullImage {
+    [ivFullImage removeFromSuperview];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath

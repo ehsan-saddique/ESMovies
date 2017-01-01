@@ -79,6 +79,36 @@
             </objects>
             <point key="canvasLocation" x="2044" y="-370.16491754122939"/>
         </scene>
+        <!--Image Viewer View Controller-->
+        <scene sceneID="JLJ-P3-eBI">
+            <objects>
+                <viewController storyboardIdentifier="ImageViewerViewController" id="S7a-Ia-pY5" customClass="ImageViewerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Ju-PN-4Eo"/>
+                        <viewControllerLayoutGuide type="bottom" id="Byt-J8-np0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5SL-oD-0e5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p6Q-pX-jcQ"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="p6Q-pX-jcQ" firstAttribute="top" secondItem="5SL-oD-0e5" secondAttribute="top" id="H6i-oF-ORj"/>
+                            <constraint firstItem="p6Q-pX-jcQ" firstAttribute="leading" secondItem="5SL-oD-0e5" secondAttribute="leading" id="MY5-BZ-rzJ"/>
+                            <constraint firstItem="Byt-J8-np0" firstAttribute="top" secondItem="p6Q-pX-jcQ" secondAttribute="bottom" id="Mqm-EA-4xb"/>
+                            <constraint firstAttribute="trailing" secondItem="p6Q-pX-jcQ" secondAttribute="trailing" id="yHG-qs-Hpc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imgResource" destination="p6Q-pX-jcQ" id="3p0-hP-zxa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yax-Qu-Hkr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2823.1999999999998" y="-375.56221889055473"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>

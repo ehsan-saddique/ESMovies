@@ -13,6 +13,13 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    UITapGestureRecognizer* imageTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped:)];
+    [self addGestureRecognizer:imageTapGesture];
+}
+
+-(void)imageTapped:(UITapGestureRecognizer *)sender{
+    self.imageTapHandler();
 }
 
 @end

@@ -26,22 +26,33 @@
                             <action selector="playButtonClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="jhu-Rf-phN"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="uBc-iz-cWx">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="78l-4o-6TA"/>
+                            <constraint firstAttribute="height" constant="20" id="BWB-Sh-hjM"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="byE-vi-68M" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="0Ww-AT-hqt"/>
+                <constraint firstItem="uBc-iz-cWx" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="3LM-af-v1Q"/>
                 <constraint firstAttribute="trailing" secondItem="3uu-Il-kY9" secondAttribute="trailing" id="E0E-38-28i"/>
                 <constraint firstItem="3uu-Il-kY9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="KQt-Db-FVG"/>
                 <constraint firstItem="3uu-Il-kY9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="M3F-ye-nS1"/>
                 <constraint firstAttribute="bottom" secondItem="3uu-Il-kY9" secondAttribute="bottom" id="Q3F-LW-9mT"/>
                 <constraint firstItem="byE-vi-68M" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Zge-kn-VcM"/>
+                <constraint firstItem="uBc-iz-cWx" firstAttribute="trailing" secondItem="3uu-Il-kY9" secondAttribute="trailing" id="bk6-QZ-itf"/>
             </constraints>
             <connections>
+                <outlet property="imgArrowRight" destination="uBc-iz-cWx" id="pIv-Kg-GjZ"/>
                 <outlet property="imgCardImage" destination="3uu-Il-kY9" id="hhc-V9-8CL"/>
             </connections>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="arrow_right" width="45" height="45"/>
         <image name="placeholder_item_artwork" width="250" height="250"/>
         <image name="play_button" width="165" height="165"/>
     </resources>

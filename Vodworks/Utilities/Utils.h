@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void) showAlertWithCancelButton:(NSString *)cancelText title:(NSString *)title message:(NSString *)message viewController:(UIViewController*)controller;
 + (void) setBorderOfView:(UIView *)view withBorderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor cornerRadius:(CGFloat)radius;
 + (NSString *)timeFormatted:(int)totalSeconds;
++ (BOOL) isEmpty:(id)thing;
 
 NS_ASSUME_NONNULL_END
 

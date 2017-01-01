@@ -86,4 +86,16 @@
     return [NSString stringWithFormat:@"%01d h %02d min", hours, minutes];
 }
 
++ (BOOL) isEmpty:(id)thing {
+    return thing == nil
+    || ([thing respondsToSelector:@selector(length)]
+        && [(NSData *)thing length] == 0)
+    || ([thing respondsToSelector:@selector(count)]
+        && [(NSArray *)thing count] == 0)
+    || ([thing respondsToSelector:@selector(count)]
+        && [(NSDictionary *)thing count] == 0)
+    || ([thing respondsToSelector:@selector(isKindOfClass:)]
+        && [thing isKindOfClass:[NSNull class]] == YES);
+}
+
 @end

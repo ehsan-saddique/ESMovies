@@ -9,7 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ItemDetailHeaderGallery">
-            <rect key="frame" x="0.0" y="0.0" width="640" height="120"/>
+            <rect key="frame" x="0.0" y="0.0" width="640" height="112"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGE-QV-hGu" userLabel="ContentView">
@@ -17,8 +17,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9A-au-xm0">
                             <subviews>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qfB-8N-PYZ">
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="VEp-cT-d3Q">
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="VEp-cT-d3Q">
                                         <size key="itemSize" width="50" height="50"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -32,16 +32,16 @@
                             </subviews>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="qfB-8N-PYZ" secondAttribute="trailing" id="2Iv-Kp-hgz"/>
-                                <constraint firstAttribute="bottom" secondItem="qfB-8N-PYZ" secondAttribute="bottom" id="QzN-us-5an"/>
+                                <constraint firstAttribute="bottom" secondItem="qfB-8N-PYZ" secondAttribute="bottom" constant="4" id="QzN-us-5an"/>
                                 <constraint firstItem="qfB-8N-PYZ" firstAttribute="leading" secondItem="N9A-au-xm0" secondAttribute="leading" id="ViS-Sd-MA8"/>
-                                <constraint firstItem="qfB-8N-PYZ" firstAttribute="top" secondItem="N9A-au-xm0" secondAttribute="top" id="hdo-om-RKC"/>
+                                <constraint firstItem="qfB-8N-PYZ" firstAttribute="top" secondItem="N9A-au-xm0" secondAttribute="top" constant="4" id="hdo-om-RKC"/>
                             </constraints>
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="N9A-au-xm0" firstAttribute="leading" secondItem="nGE-QV-hGu" secondAttribute="leading" constant="8" id="70S-us-bO0"/>
+                        <constraint firstItem="N9A-au-xm0" firstAttribute="leading" secondItem="nGE-QV-hGu" secondAttribute="leading" id="70S-us-bO0"/>
                         <constraint firstItem="N9A-au-xm0" firstAttribute="top" secondItem="nGE-QV-hGu" secondAttribute="top" id="9I0-NI-MCD"/>
-                        <constraint firstAttribute="trailing" secondItem="N9A-au-xm0" secondAttribute="trailing" constant="8" id="Ci9-Ka-c4e"/>
+                        <constraint firstAttribute="trailing" secondItem="N9A-au-xm0" secondAttribute="trailing" id="Ci9-Ka-c4e"/>
                         <constraint firstAttribute="bottom" secondItem="N9A-au-xm0" secondAttribute="bottom" id="v5u-7G-nzS"/>
                     </constraints>
                 </view>
