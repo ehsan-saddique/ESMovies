@@ -17,5 +17,6 @@ typedef void (^ApplicationFailureBlock)(NSError *error);
 + (instancetype)sharedManager;
 
 -(void)loadDataWithSuccessBlock:(ApplicationSuccessBlock)successBlock failureBlock:(ApplicationFailureBlock)failureBlock;
+-(NSArray *)parseJsonData:(NSDictionary *)data;
 
 @end

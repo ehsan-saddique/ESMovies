@@ -12,10 +12,23 @@
 #import "ApplicationManager.h"
 #import "UIImageView+AFNetworking.h"
 #import "ItemDetailViewController.h"
+#import "ItemListCollectionViewCell.h"
+
+static NSString *idCollectionViewCell = @"ItemListCollectionViewCell";
 
 @interface ItemLIstViewController ()
 
+typedef NS_ENUM(NSInteger, LayoutType){
+    LayoutTypeList = 0,
+    LayoutTypeGrid,
+};
+
+@property(nonatomic) NSPredicate* searchPredicate;
+@property(assign) BOOL isSearchActive;
+@property (nonatomic, strong) UISearchController *searchController;
+@property(nonatomic) NSArray *searchResults;
 @property (nonatomic) NSArray *items;
+@property (nonatomic) LayoutType currentLayout;
 
 @end
 
@@ -26,9 +39,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [Utils setupNavigationController:self.navigationController];
-    self.title = @"Vodworks";
+    self.title = @"Showcase";
+    
+    UINib* nibCollectionViewCell = [UINib nibWithNibName:@"ItemListCollectionViewCell" bundle:nil];
+    [self.collectionView registerNib:nibCollectionViewCell forCellWithReuseIdentifier:idCollectionViewCell];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Grid View" style:UIBarButtonItemStylePlain target:self action:@selector(changeLayout)];
+    
+    self.searchResults = [NSArray new];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.currentLayout = LayoutTypeList;
     
     [Utils showLoaderInView:[UIApplication sharedApplication].keyWindow];
     
@@ -40,8 +61,30 @@
         
     } failureBlock:^(NSError *error) {
         [Utils hideLoaderOfView:[UIApplication sharedApplication].keyWindow];
-        [Utils showAlertWithCancelButton:@"OK" title:@"" message:error.localizedDescription viewController:self];
+        [Utils showAlertWithCancelButton:@"OK" title:@"" message:@"Couldn't load data from server. Local file data will be used." viewController:self];
+        
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"jsonData" ofType:@"txt"];
+        NSData *content = [[NSData alloc] initWithContentsOfFile:filePath];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:content options:kNilOptions error:nil];
+        self.items =  [[ApplicationManager sharedManager] parseJsonData:json];;
+        dataLoaded = YES;
+        [self.tableView reloadData];
     }];
+    
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchBar.scopeButtonTitles = [NSArray array];
+    self.searchController.delegate = self;
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+    self.searchController.searchBar.delegate = self;
+    self.searchController.searchBar.placeholder = @"Search";
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+    self.definesPresentationContext = YES;
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.extendedLayoutIncludesOpaqueBars = YES;
+    
+    self.collectionView.hidden = YES;
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -49,6 +92,23 @@
     NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
     if (indexPath) {
         [self.tableView deselectRowAtIndexPath:indexPath animated:animated];
+    }
+}
+
+-(void)changeLayout {
+    if (self.currentLayout == LayoutTypeList) {
+        self.navigationItem.rightBarButtonItem.title = @"List View";
+        self.currentLayout = LayoutTypeGrid;
+        self.tableView.hidden = YES;
+        self.collectionView.hidden = NO;
+        [self.collectionView reloadData];
+    }
+    else {
+        self.navigationItem.rightBarButtonItem.title = @"Grid View";
+        self.currentLayout = LayoutTypeList;
+        self.tableView.hidden = NO;
+        self.collectionView.hidden = YES;
+        [self.tableView reloadData];
     }
 }
 
@@ -61,7 +121,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (dataLoaded) {
-        return _items.count;
+        if (_isSearchActive) {
+            return _searchResults.count;
+        }
+        else {
+            return _items.count;
+        }
     }
     return 0;
 }
@@ -76,7 +141,13 @@
     
     if (dataLoaded) {
         
-        Item *item = [_items objectAtIndex:indexPath.row];
+        Item *item = [[Item alloc] init];
+        if (_isSearchActive) {
+            item = [_searchResults objectAtIndex:indexPath.row];
+        }
+        else {
+            item = [_items objectAtIndex:indexPath.row];
+        }
         
         NSString *headline = item.headline;
         headline = [headline stringByAppendingString:[NSString stringWithFormat:@" (%@)", item.year]];
@@ -117,32 +188,95 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Item *item = [_items objectAtIndex:indexPath.row];
+    Item *item = [[Item alloc] init];
+    if (_isSearchActive) {
+        item = [_searchResults objectAtIndex:indexPath.row];
+    }
+    else {
+        item = [_items objectAtIndex:indexPath.row];
+    }
     
     ItemDetailViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemDetailViewController"];
     controller.item = item;
     [self.navigationController pushViewController:controller animated:YES];
 }
 
-//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    
-//    return nil;
-//    
-//}
-//
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//        return 0;
-//}
-//
-//-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-//    return [[UIView alloc] init];
-//}
-//
-//
-//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-//    return 0;
-//}
+#pragma mark - UISearchController
 
+- (void)willPresentSearchController:(UISearchController *)searchController {
+    [self.navigationController.navigationBar setTranslucent:YES];
+}
+
+-(void)willDismissSearchController:(UISearchController *)searchController
+{
+    [self.navigationController.navigationBar setTranslucent:NO];
+}
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
+{
+    NSString *searchString = searchController.searchBar.text;
+    if (searchString.length == 0) {
+        self.isSearchActive = NO;
+        [self.tableView reloadData];
+    }else{
+        self.isSearchActive = YES;
+        [self searchForText:searchString scope:self.searchController.searchBar.selectedScopeButtonIndex];
+        [self.tableView reloadData];
+    }
+}
+
+- (void)searchForText:(NSString *)searchText scope:(NSUInteger)scopeOption {
+    self.searchPredicate = [NSPredicate predicateWithFormat:@"SELF.headline contains[c] %@", searchText];
+    self.searchResults = [self.items filteredArrayUsingPredicate:self.searchPredicate];
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return _items.count;
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(90, 134);
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    ItemListCollectionViewCell *cell = (ItemListCollectionViewCell *) [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ItemListCollectionViewCell" forIndexPath:indexPath];
+    
+    Item *item = [_items objectAtIndex:indexPath.row];
+    
+    NSURL *url = [NSURL URLWithString:[item.keyArtImages[0] valueForKey:@"url"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder_item_artwork"];
+    
+    __weak ItemListCollectionViewCell *weakCell = cell;
+    
+    [cell.ivCover setImageWithURLRequest:request
+                           placeholderImage:placeholderImage
+                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                        
+                                        weakCell.ivCover.image = image;
+                                        [weakCell setNeedsLayout];
+                                        
+                                    } failure:nil];
+    
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    Item *item = [_items objectAtIndex:indexPath.row];
+    
+    ItemDetailViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemDetailViewController"];
+    controller.item = item;
+    [self.navigationController pushViewController:controller animated:YES];
+    
+}
 
 
 @end

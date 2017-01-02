@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Item.h"
 
-@interface ItemLIstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface ItemLIstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

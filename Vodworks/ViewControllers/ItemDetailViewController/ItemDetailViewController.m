@@ -15,6 +15,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "ItemDetailExpandedTableViewCell.h"
 #import "ImageViewerViewController.h"
+#import "StoryDetailViewController.h"
 
 static NSString *idSectionHeaderOverview = @"ItemDetailHeaderOverview";
 static NSString *idSectionHeaderVideo = @"ItemDetailHeaderVideo";
@@ -42,6 +43,8 @@ typedef NS_ENUM(NSInteger,TableSection){
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"Info";
     
     UINib* nibHeaderOverview = [UINib nibWithNibName:@"ItemDetailHeaderOverview" bundle:nil];
     [self.tableView registerNib:nibHeaderOverview forHeaderFooterViewReuseIdentifier:idSectionHeaderOverview];
@@ -199,6 +202,14 @@ typedef NS_ENUM(NSInteger,TableSection){
         
         __weak ItemDetailHeaderOverview *weakSectionHeader = sectionHeader;
         
+        sectionHeader.textTapped = ^{
+            StoryDetailViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"StoryDetailViewController"];
+            controller.synopsis = _item.synopsis;
+            controller.plot = _item.body;
+            controller.quote = _item.quote;
+            [self.navigationController pushViewController:controller animated:YES];
+        };
+        
         [sectionHeader.imgArtwork setImageWithURLRequest:request
                                placeholderImage:placeholderImage
                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
@@ -343,9 +354,9 @@ typedef NS_ENUM(NSInteger,TableSection){
         case TableSectionDirector:
             height = 10;
             break;
-        case TableSectionViewingWindow:
-            height = 20;
-            break;
+//        case TableSectionViewingWindow:
+//            height = 20;
+//            break;
     }
     
     return height;

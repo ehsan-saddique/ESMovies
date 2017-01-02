@@ -17,5 +17,8 @@
     // Drawing code
 }
 */
+- (IBAction)textTapped:(UIButton *)sender {
+    self.textTapped();
+}
 
 @end

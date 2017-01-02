@@ -89,4 +89,56 @@
     }];
 }
 
+-(NSArray *)parseJsonData:(NSDictionary *)data {
+    NSMutableArray *itemList = [NSMutableArray new];
+    
+    for (NSDictionary *itemDictionary in data) {
+        Item *item = [[Item alloc] init];
+        item.skyGoUrl = [itemDictionary valueForKey:@"skyGoUrl"];
+        item.skyGoId = [itemDictionary valueForKey:@"skyGoId"];
+        item.sum = [itemDictionary valueForKey:@"sum"];
+        item.url = [itemDictionary valueForKey:@"url"];
+        item.mId = [itemDictionary valueForKey:@"id"];
+        item.reviewAuthor = [itemDictionary valueForKey:@"reviewAuthor"];
+        item.cert = [itemDictionary valueForKey:@"cert"];
+        item.year = [itemDictionary valueForKey:@"year"];
+        item.duration = [[itemDictionary valueForKey:@"duration"] intValue];
+        item.rating = [[itemDictionary valueForKey:@"rating"] intValue];
+        item.mClass = [itemDictionary valueForKey:@"class"];
+        item.headline = [itemDictionary valueForKey:@"headline"];
+        item.synopsis = [itemDictionary valueForKey:@"synopsis"];
+        item.body = [itemDictionary valueForKey:@"body"];
+        item.lastUpdated = [itemDictionary valueForKey:@"lastUpdated"];
+        item.quote = [itemDictionary valueForKey:@"quote"];
+        
+        item.genres = [itemDictionary valueForKey:@"genres"];
+        item.cardImages = [itemDictionary valueForKey:@"cardImages"];
+        item.keyArtImages = [itemDictionary valueForKey:@"keyArtImages"];
+        item.directors = [itemDictionary valueForKey:@"directors"];
+        item.cast = [itemDictionary valueForKey:@"cast"];
+        
+        ViewingWindow *viewingWindow = [[ViewingWindow alloc] init];
+        NSDictionary *viewingWindowDict = [itemDictionary valueForKey:@"viewingWindow"];
+        viewingWindow.title = [viewingWindowDict valueForKey:@"title"];
+        viewingWindow.startDate = [viewingWindowDict valueForKey:@"startDate"];
+        viewingWindow.endDate = [viewingWindowDict valueForKey:@"endDate"];
+        viewingWindow.wayToWatch = [viewingWindowDict valueForKey:@"wayToWatch"];
+        item.viewingWindow = viewingWindow;
+        
+        NSArray *videosList = [itemDictionary valueForKey:@"videos"];
+        item.videos = [NSMutableArray new];
+        for (NSDictionary *videoDict in videosList) {
+            Video *video = [[Video alloc] init];
+            video.title = [videoDict valueForKey:@"title"];
+            video.type = [videoDict valueForKey:@"type"];
+            video.url = [videoDict valueForKey:@"url"];
+            video.alternatives = [videoDict valueForKey:@"alternatives"];
+            [item.videos addObject:video];
+        }
+        
+        [itemList addObject:item];
+    }
+    return itemList;
+}
+
 @end

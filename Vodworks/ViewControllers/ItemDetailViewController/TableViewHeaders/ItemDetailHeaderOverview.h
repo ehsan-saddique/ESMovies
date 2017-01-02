@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^TextTapped)();
+
 @interface ItemDetailHeaderOverview : UITableViewHeaderFooterView
 
 @property (nonatomic) IBOutlet UIImageView *imgArtwork;
@@ -15,5 +17,7 @@
 @property (nonatomic) IBOutlet UILabel *lblHeadline;
 @property (nonatomic) IBOutlet UILabel *lblOneLineDetail;
 @property (nonatomic) IBOutlet UILabel *lblSynopsis;
+
+@property (nonatomic) TextTapped textTapped;
 
 @end

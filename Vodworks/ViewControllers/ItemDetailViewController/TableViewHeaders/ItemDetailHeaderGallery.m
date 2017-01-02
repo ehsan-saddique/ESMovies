@@ -72,10 +72,6 @@
     return cell;
 }
 
--(void) hideFullImage {
-    [ivFullImage removeFromSuperview];
-}
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     //    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];

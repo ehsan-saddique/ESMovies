@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		20AF7277D26B9BC30C0B370D /* libPods-Vodworks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC27DB698CBE5EC4118DF5C /* libPods-Vodworks.a */; };
 		B612A1EA1E1980BF00E663E6 /* ImageViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B612A1E91E1980BF00E663E6 /* ImageViewerViewController.m */; };
+		B612A1EC1E1994B300E663E6 /* jsonData.txt in Resources */ = {isa = PBXBuildFile; fileRef = B612A1EB1E1994B300E663E6 /* jsonData.txt */; };
 		B62815E91E1961E700BAF2BA /* ItemDetailHeaderCollapsed.m in Sources */ = {isa = PBXBuildFile; fileRef = B62815E71E1961E700BAF2BA /* ItemDetailHeaderCollapsed.m */; };
 		B62815EA1E1961E700BAF2BA /* ItemDetailHeaderCollapsed.xib in Resources */ = {isa = PBXBuildFile; fileRef = B62815E81E1961E700BAF2BA /* ItemDetailHeaderCollapsed.xib */; };
 		B62815EF1E19646C00BAF2BA /* ItemDetailExpandedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B62815ED1E19646C00BAF2BA /* ItemDetailExpandedTableViewCell.m */; };
@@ -21,6 +22,13 @@
 		B62D76B11E17F3CB00DC94C0 /* ItemDetailHeaderGallery.xib in Resources */ = {isa = PBXBuildFile; fileRef = B62D76AF1E17F3CB00DC94C0 /* ItemDetailHeaderGallery.xib */; };
 		B62D76B51E17F4C500DC94C0 /* GalleryHeaderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B62D76B31E17F4C500DC94C0 /* GalleryHeaderCollectionViewCell.m */; };
 		B62D76B61E17F4C500DC94C0 /* GalleryHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B62D76B41E17F4C500DC94C0 /* GalleryHeaderCollectionViewCell.xib */; };
+		B66B89EA1E1A3A8E004B7FC7 /* StoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66B89E91E1A3A8E004B7FC7 /* StoryDetailViewController.m */; };
+		B66B89EF1E1A3B87004B7FC7 /* StoryDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B66B89ED1E1A3B87004B7FC7 /* StoryDetailTableViewCell.m */; };
+		B66B89F01E1A3B87004B7FC7 /* StoryDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B66B89EE1E1A3B87004B7FC7 /* StoryDetailTableViewCell.xib */; };
+		B66B89F41E1A3D9B004B7FC7 /* StoryDetailHeaderTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = B66B89F31E1A3D9B004B7FC7 /* StoryDetailHeaderTitle.m */; };
+		B66B89F61E1A3DB3004B7FC7 /* StoryDetailHeaderTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = B66B89F51E1A3DB3004B7FC7 /* StoryDetailHeaderTitle.xib */; };
+		B66B89FB1E1A779D004B7FC7 /* ItemListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B66B89F91E1A779D004B7FC7 /* ItemListCollectionViewCell.m */; };
+		B66B89FC1E1A779D004B7FC7 /* ItemListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B66B89FA1E1A779D004B7FC7 /* ItemListCollectionViewCell.xib */; };
 		B66DA2CD1E163E27001A8D9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B66DA2CC1E163E27001A8D9D /* main.m */; };
 		B66DA2D01E163E27001A8D9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B66DA2CF1E163E27001A8D9D /* AppDelegate.m */; };
 		B66DA2D31E163E27001A8D9D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66DA2D21E163E27001A8D9D /* ViewController.m */; };
@@ -48,6 +56,7 @@
 		4AC27DB698CBE5EC4118DF5C /* libPods-Vodworks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Vodworks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B612A1E81E1980BF00E663E6 /* ImageViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewerViewController.h; sourceTree = "<group>"; };
 		B612A1E91E1980BF00E663E6 /* ImageViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewerViewController.m; sourceTree = "<group>"; };
+		B612A1EB1E1994B300E663E6 /* jsonData.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = jsonData.txt; sourceTree = "<group>"; };
 		B62815E61E1961E700BAF2BA /* ItemDetailHeaderCollapsed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailHeaderCollapsed.h; sourceTree = "<group>"; };
 		B62815E71E1961E700BAF2BA /* ItemDetailHeaderCollapsed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailHeaderCollapsed.m; sourceTree = "<group>"; };
 		B62815E81E1961E700BAF2BA /* ItemDetailHeaderCollapsed.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemDetailHeaderCollapsed.xib; sourceTree = "<group>"; };
@@ -66,6 +75,17 @@
 		B62D76B21E17F4C500DC94C0 /* GalleryHeaderCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryHeaderCollectionViewCell.h; sourceTree = "<group>"; };
 		B62D76B31E17F4C500DC94C0 /* GalleryHeaderCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryHeaderCollectionViewCell.m; sourceTree = "<group>"; };
 		B62D76B41E17F4C500DC94C0 /* GalleryHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		B66B89E81E1A3A8E004B7FC7 /* StoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryDetailViewController.h; sourceTree = "<group>"; };
+		B66B89E91E1A3A8E004B7FC7 /* StoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryDetailViewController.m; sourceTree = "<group>"; };
+		B66B89EC1E1A3B87004B7FC7 /* StoryDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryDetailTableViewCell.h; sourceTree = "<group>"; };
+		B66B89ED1E1A3B87004B7FC7 /* StoryDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryDetailTableViewCell.m; sourceTree = "<group>"; };
+		B66B89EE1E1A3B87004B7FC7 /* StoryDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryDetailTableViewCell.xib; sourceTree = "<group>"; };
+		B66B89F21E1A3D9B004B7FC7 /* StoryDetailHeaderTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryDetailHeaderTitle.h; sourceTree = "<group>"; };
+		B66B89F31E1A3D9B004B7FC7 /* StoryDetailHeaderTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryDetailHeaderTitle.m; sourceTree = "<group>"; };
+		B66B89F51E1A3DB3004B7FC7 /* StoryDetailHeaderTitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryDetailHeaderTitle.xib; sourceTree = "<group>"; };
+		B66B89F81E1A779D004B7FC7 /* ItemListCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListCollectionViewCell.h; sourceTree = "<group>"; };
+		B66B89F91E1A779D004B7FC7 /* ItemListCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListCollectionViewCell.m; sourceTree = "<group>"; };
+		B66B89FA1E1A779D004B7FC7 /* ItemListCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemListCollectionViewCell.xib; sourceTree = "<group>"; };
 		B66DA2C81E163E27001A8D9D /* Vodworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vodworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B66DA2CC1E163E27001A8D9D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B66DA2CE1E163E27001A8D9D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -163,9 +183,51 @@
 			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
+		B66B89E71E1A39B9004B7FC7 /* StoryDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B66B89F11E1A3D72004B7FC7 /* TableViewHeader */,
+				B66B89EB1E1A3AE1004B7FC7 /* TableViewCell */,
+				B66B89E81E1A3A8E004B7FC7 /* StoryDetailViewController.h */,
+				B66B89E91E1A3A8E004B7FC7 /* StoryDetailViewController.m */,
+			);
+			path = StoryDetailViewController;
+			sourceTree = "<group>";
+		};
+		B66B89EB1E1A3AE1004B7FC7 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B66B89EC1E1A3B87004B7FC7 /* StoryDetailTableViewCell.h */,
+				B66B89ED1E1A3B87004B7FC7 /* StoryDetailTableViewCell.m */,
+				B66B89EE1E1A3B87004B7FC7 /* StoryDetailTableViewCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		B66B89F11E1A3D72004B7FC7 /* TableViewHeader */ = {
+			isa = PBXGroup;
+			children = (
+				B66B89F21E1A3D9B004B7FC7 /* StoryDetailHeaderTitle.h */,
+				B66B89F31E1A3D9B004B7FC7 /* StoryDetailHeaderTitle.m */,
+				B66B89F51E1A3DB3004B7FC7 /* StoryDetailHeaderTitle.xib */,
+			);
+			path = TableViewHeader;
+			sourceTree = "<group>";
+		};
+		B66B89F71E1A7769004B7FC7 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				B66B89F81E1A779D004B7FC7 /* ItemListCollectionViewCell.h */,
+				B66B89F91E1A779D004B7FC7 /* ItemListCollectionViewCell.m */,
+				B66B89FA1E1A779D004B7FC7 /* ItemListCollectionViewCell.xib */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
 		B66DA2BF1E163E26001A8D9D = {
 			isa = PBXGroup;
 			children = (
+				B612A1EB1E1994B300E663E6 /* jsonData.txt */,
 				B66DA2CA1E163E27001A8D9D /* Vodworks */,
 				B66DA2C91E163E27001A8D9D /* Products */,
 				22BD178156642F11A77772A2 /* Pods */,
@@ -230,6 +292,7 @@
 		B66F3E7E1E17A7D700EF4E01 /* ItemListViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B66B89F71E1A7769004B7FC7 /* CollectionViewCells */,
 				B66F3E811E17A7D700EF4E01 /* TableViewCells */,
 				B66F3E7F1E17A7D700EF4E01 /* ItemLIstViewController.h */,
 				B66F3E801E17A7D700EF4E01 /* ItemLIstViewController.m */,
@@ -294,6 +357,7 @@
 		B6AB94051E16C23800C5053F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B66B89E71E1A39B9004B7FC7 /* StoryDetailViewController */,
 				B612A1E71E1980A900E663E6 /* ImageViewerViewController */,
 				B66F3E881E17A7F100EF4E01 /* ItemDetailViewController */,
 				B66F3E7E1E17A7D700EF4E01 /* ItemListViewController */,
@@ -383,13 +447,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B66B89F61E1A3DB3004B7FC7 /* StoryDetailHeaderTitle.xib in Resources */,
 				B62815EA1E1961E700BAF2BA /* ItemDetailHeaderCollapsed.xib in Resources */,
+				B66B89F01E1A3B87004B7FC7 /* StoryDetailTableViewCell.xib in Resources */,
 				B62D76B11E17F3CB00DC94C0 /* ItemDetailHeaderGallery.xib in Resources */,
+				B66B89FC1E1A779D004B7FC7 /* ItemListCollectionViewCell.xib in Resources */,
 				B62D76A61E17D7C300DC94C0 /* ItemDetailHeaderVideos.xib in Resources */,
 				B66F3E871E17A7D700EF4E01 /* ItemListTableViewCell.xib in Resources */,
 				B62815F01E19646C00BAF2BA /* ItemDetailExpandedTableViewCell.xib in Resources */,
 				B62D76AC1E17D9E700DC94C0 /* VideoHeaderCollectionViewCell.xib in Resources */,
 				B66DA2DB1E163E27001A8D9D /* LaunchScreen.storyboard in Resources */,
+				B612A1EC1E1994B300E663E6 /* jsonData.txt in Resources */,
 				B66F3E911E17A85B00EF4E01 /* ItemDetailHeaderOverview.xib in Resources */,
 				B66DA2D81E163E27001A8D9D /* Assets.xcassets in Resources */,
 				B66DA2D61E163E27001A8D9D /* Main.storyboard in Resources */,
@@ -465,12 +533,16 @@
 				B62D76A41E17D7A200DC94C0 /* ItemDetailHeaderVideos.m in Sources */,
 				B6AB94031E16C22100C5053F /* Video.m in Sources */,
 				B62D76B51E17F4C500DC94C0 /* GalleryHeaderCollectionViewCell.m in Sources */,
+				B66B89EF1E1A3B87004B7FC7 /* StoryDetailTableViewCell.m in Sources */,
 				B66DA2CD1E163E27001A8D9D /* main.m in Sources */,
 				B6AB94041E16C22100C5053F /* ViewingWindow.m in Sources */,
 				B66F3E8B1E17A80B00EF4E01 /* ItemDetailViewController.m in Sources */,
 				B66F3E8F1E17A84900EF4E01 /* ItemDetailHeaderOverview.m in Sources */,
+				B66B89F41E1A3D9B004B7FC7 /* StoryDetailHeaderTitle.m in Sources */,
 				B66DA2EA1E16582E001A8D9D /* ServiceManager.m in Sources */,
 				B612A1EA1E1980BF00E663E6 /* ImageViewerViewController.m in Sources */,
+				B66B89FB1E1A779D004B7FC7 /* ItemListCollectionViewCell.m in Sources */,
+				B66B89EA1E1A3A8E004B7FC7 /* StoryDetailViewController.m in Sources */,
 				B66F3E851E17A7D700EF4E01 /* ItemLIstViewController.m in Sources */,
 				B62815E91E1961E700BAF2BA /* ItemDetailHeaderCollapsed.m in Sources */,
 			);
