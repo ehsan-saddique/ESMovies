@@ -51,6 +51,7 @@
     
     AFHTTPSessionManager *operationManager = self.sharedHTTPManager;
     
+    [operationManager.requestSerializer setTimeoutInterval:10];
     operationManager.securityPolicy.allowInvalidCertificates = YES;
     operationManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/xml", @"text/plain", nil];
     
@@ -58,39 +59,6 @@
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         // Do not comment this line for QA Logs
         NSLog(@"Response string success: %@ ", responseObject);
-        
-        successCallBack(responseObject);
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        
-        // Do not comment this line for QA Logs
-        NSLog(@"Response string Failure: %@ \nError : %@", task.response, [error localizedDescription]);
-        
-        failureCallBack(error);
-    }];
-    
-}
-
-
-- (void) startPOSTRequestWithURL:(NSString*)urlString andParameters:(NSDictionary*) parameters withSuccessCallback:(ServiceSuccessBlock)successCallBack andFailureCallBack:(ServiceFailureBlock)failureCallBack
-{
-    
-    NSURL *url = [NSURL URLWithString:urlString];
-    
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
-    NSLog(@"Request URL : %@\nRequest Parameters : %@", url, parameters);
-    
-    AFHTTPSessionManager *operationManager = self.sharedHTTPManager;
-    
-    operationManager.securityPolicy.allowInvalidCertificates = YES;
-    operationManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/xml", @"text/plain", nil];
-    
-    [operationManager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        // Do not comment this line for QA Logs
-        NSLog(@"Response string success: %@ ", task.response);
         
         successCallBack(responseObject);
         
